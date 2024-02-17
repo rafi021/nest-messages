@@ -1,11 +1,8 @@
 import { MessagesRepository } from "./messages.repository";
 export class MessageService{
     messagesRepo: MessagesRepository
-
-    constructor() {
-        // Service is creating its own dependencies
-        // DONT DO this on Real APPS
-        this.messagesRepo = new MessagesRepository();
+    constructor(repo: MessagesRepository) {
+        this.messagesRepo = repo;
     }
 
     findOne(id: string){
